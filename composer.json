@@ -14,6 +14,38 @@
         }
     ],
     "extra": {
-        
+        "post-package-install":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","copyDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-bootstrap-select/src/":"resource/bootstrap-select/"
+                }]
+            }
+        ],
+        "post-package-update":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","rmDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-bootstrap-select/src/":"resource/bootstrap-select/"
+                }]
+            },
+            {
+                "cmd":["xqkeji\\composer\\Asset","copyDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-bootstrap-select/src/":"resource/bootstrap-select/"
+                }]
+            }
+        ],
+        "post-package-uninstall":[
+            {
+                "cmd":["xqkeji\\composer\\Asset","rmDirs"],
+                "param":[{
+                    "vendor/xqkeji/xq-com-bootstrap-select/src/":"resource/bootstrap-select/"
+                }]
+            }
+        ]
+    },
+    "require": {
+        "xqkeji/composer":"^1.0"
     }
 }
